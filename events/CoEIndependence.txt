@@ -1,0 +1,915 @@
+#Belgian Revolution
+country_event = {
+	id = 7000
+	title = "Belgian Revolution"
+	desc = "EVTDESC7000"
+	
+	trigger = {
+		tag = NET
+		year = 1830
+		NOT = { exists = BEL }
+		any_owned_province = {
+			OR = {
+				is_core = WAL
+				is_core = FLA
+			}
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen =  {
+		months = 6
+	}
+	
+	option = {
+		name = "Damn them!"
+		any_owned = {
+			limit = {
+				OR = {
+					is_core = FLA
+					is_core = WLL
+					province_id = 381
+				}
+			}
+			add_core = BEL
+		}
+		release = BEL
+		LUX = { 
+			all_core = { 
+				add_core = NET
+				add_core = BEL
+			}
+			release = BEL
+		}
+		war = {
+			target = BEL
+			attacker_goal = {
+				casus_belli = annex_core_country
+			}
+			call_ally = no
+		}
+		BEL = {
+			small_arms = 100
+			canned_food = 200
+			artillery = 50
+			luxury_clothes = 50
+			wine = 50
+			liquor = 50
+			ammunition = 100
+			money = 1000
+		}
+		ENG = {
+			diplomatic_influence = {
+				who = BEL
+				value = 100
+			}
+		}
+		set_country_flag = belgian_independence
+		
+		ai_chance = {
+			factor = 90
+		}
+	}
+	option = {
+		name = "Let them go."
+		any_owned = {
+			limit = {
+				OR = {
+					is_core = FLA
+					is_core = WLL
+					province_id = 381
+				}
+			}
+			add_core = BEL
+			remove_core = THIS
+		}
+		release = BEL
+		LUX = { 
+			all_core = { 
+				add_core = BEL
+			}
+			release = BEL
+		}
+		
+		set_country_flag = belgian_independence
+		
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+
+#Texas Revolution
+country_event = {
+	id = 7001
+	title = "Texas Revolution"
+	desc = "EVTDESC7001"
+	
+	trigger = {
+		year = 1835
+		NOT = { 
+			exists = TEX
+			tag = USA
+		}
+		any_owned_province = {
+			is_core = TEX
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen =  {
+		months = 6
+	}
+	
+	option = {
+		name = "Damn them!"
+		TEX_132 = {
+			add_core = TEX
+		}
+		103 = {
+			add_core = TEX
+		}
+		105 = {
+			add_core = TEX
+		}
+		release = TEX
+		USA = {
+			diplomatic_influence = {
+				who = TEX
+				value = 50
+			}
+		}
+		war = {
+			target = TEX
+			attacker_goal = {
+				casus_belli = annex_core_country
+			}
+			call_ally = no
+		}
+		
+		ai_chance = {
+			factor = 90
+		}
+	}
+	option = {
+		name = "Let them go."
+		TEX_132 = {
+			add_core = TEX
+			remove_core = THIS
+		}
+		103 = {
+			add_core = TEX
+			remove_core = THIS
+		}
+		105 = {
+			add_core = TEX
+			remove_core = THIS
+		}
+		release = TEX
+		
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+
+#Greek Independence
+country_event = {
+	id = 7002
+	title = "Greek Independence"
+	desc = "EVTDESC7002"
+	
+	trigger = {
+		tag = TUR
+		year = 1822
+		NOT = { exists = GRE }
+		any_owned_province = {
+			is_core = GRE
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen =  {
+		months = 6
+	}
+	
+	option = {
+		name = "Damn them!"
+		release = GRE
+		war = {
+			target = GRE
+			attacker_goal = {
+				casus_belli = annex_core_country
+			}
+			call_ally = no
+		}
+		GRE = {
+			small_arms = 100
+			canned_food = 200
+			artillery = 50
+			luxury_clothes = 50
+			wine = 50
+			liquor = 50
+			ammunition = 100
+			money = 1000
+		}
+		set_country_flag = greek_war_of_independece
+		
+		ai_chance = {
+			factor = 90
+		}
+	}
+	option = {
+		name = "Let them go."
+		all_core = {
+			limit = {
+				is_core = GRE
+			}
+			remove_core = THIS
+		}
+		release = GRE
+		
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+
+#Central American War of Independence
+country_event = {
+	id = 7004
+	title = "Central American War of Independence"
+	desc = "EVTDESC7004"
+	
+	trigger = {
+		tag = MEX
+		NOT = { year = 1830 }
+		NOT = { exists = UCA }
+		any_owned_province = {
+			is_core = UCA
+			is_core = HON
+			is_core = ELS
+			is_core = NIC
+			is_core = COS
+		}
+	}
+
+	mean_time_to_happen =  {
+		months = 36
+		modifier = {
+			factor = 0.5
+			average_militancy = 5
+		}
+		modifier = {
+			factor = 0.75
+			year = 1820
+		}
+		modifier = {
+			factor = 0.5
+			year = 1825
+		}
+	}
+	
+	option = {
+		name = "Damn them!"
+		release = UCA
+		war = {
+			target = UCA
+			attacker_goal = {
+				casus_belli = annex_core_country
+			}
+			call_ally = no
+		}
+		UCA = {
+			small_arms = 100
+			canned_food = 200
+			artillery = 50
+			luxury_clothes = 50
+			wine = 50
+			liquor = 50
+			ammunition = 100
+			money = 1000
+		}
+
+		ai_chance = {
+			factor = 70
+		}
+	}
+	option = {
+		name = "Let them go."
+		release = UCA
+		
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				war_exhaustion = 10
+			}
+			modifier = {
+				factor = 2
+				year = 1825
+			}
+			modifier = {
+				factor = 2
+				average_militancy = 5
+			}
+		}
+	}
+}
+
+#Bolivian War of Independence
+country_event = {
+	id = 7009
+	title = "Bolivian War of Independence"
+	desc = "EVTDESC7009"
+	
+	trigger = {
+		tag = SPA
+		NOT = { year = 1827 }
+		NOT = { exists = BOL }
+		any_owned_province = {
+			is_core = BOL
+		}
+	}
+
+	mean_time_to_happen =  {
+		months = 36
+		modifier = {
+			factor = 0.5
+			average_militancy = 5
+		}
+		modifier = {
+			factor = 0.75
+			year = 1820
+		}
+		modifier = {
+			factor = 0.5
+			year = 1825
+		}
+	}
+	
+	option = {
+		name = "Damn them!"
+		release = BOL
+		war = {
+			target = BOL
+			attacker_goal = {
+				casus_belli = annex_core_country
+			}
+			call_ally = no
+		}
+		BOL = {
+			small_arms = 100
+			canned_food = 200
+			artillery = 50
+			luxury_clothes = 50
+			wine = 50
+			liquor = 50
+			ammunition = 100
+			money = 1000
+		}
+
+		ai_chance = {
+			factor = 70
+		}
+	}
+	option = {
+		name = "Let them go."
+		release = BOL
+		
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				war_exhaustion = 10
+			}
+			modifier = {
+				factor = 2
+				year = 1825
+			}
+			modifier = {
+				factor = 2
+				average_militancy = 5
+			}
+		}
+	}
+}
+
+#Dissolution of Gran Colombia
+country_event = {
+	id = 7015
+	title = "Dissolution of Gran Colombia"
+	desc = "EVTDESC7015"
+
+	trigger = {
+		tag = GCO
+		year = 1831
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen =  {
+		months = 6
+	}
+	option = {
+		name = "Divide the Country."
+		ECU_2279 = {
+			add_core = ECU
+		}
+		2287 = {
+			add_core = ECU
+		}
+		2288 = {
+			add_core = ECU
+		}
+		2289 = {
+			add_core = ECU
+		}
+		VNZ_2234 = {
+			add_core = VNZ
+		}
+		VNZ_2265 = {
+			add_core = VNZ
+		}
+		VNZ_2278 = {
+			add_core = VNZ
+		}
+		2243 = {
+			add_core = VNZ
+		}
+		2242 = {
+			add_core = VNZ
+		}
+		all_core = {
+			limit = {
+				OR = {
+					is_core = VNZ
+					is_core = ECU
+				}
+			}
+			remove_core = GCO
+		}
+		release = ECU
+		release = VNZ
+		release = AMA
+		all_core = {
+			add_core = CLM
+			remove_core = GCO
+		}
+		change_tag = CLM
+		
+		ai_chance = {
+			factor = 90
+		}
+	}
+	option = {
+		name = "We shall stay united!"
+		ECU_2279 = {
+			add_core = ECU
+		}
+		2287 = {
+			add_core = ECU
+		}
+		2288 = {
+			add_core = ECU
+		}
+		2289 = {
+			add_core = ECU
+		}
+		VNZ_2234 = {
+			add_core = VNZ
+		}
+		VNZ_2265 = {
+			add_core = VNZ
+		}
+		VNZ_2278 = {
+			add_core = VNZ
+		}
+		2243 = {
+			add_core = VNZ
+		}
+		2242 = {
+			add_core = VNZ
+		}
+		release = ECU
+		release = VNZ
+		war = {
+			target = VNZ
+			attacker_goal = {
+				casus_belli = annex_core_country
+			}
+			call_ally = no
+		}
+		war = {
+			target = ECU
+			attacker_goal = {
+				casus_belli = annex_core_country
+			}
+			call_ally = no
+		}
+		
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+
+#Dissolution of The Empire
+country_event = {
+	id = 182222
+	title = "Dissolution of The Empire"
+	desc = "EVTDESC182222"
+        picture = "imperio_do_brasil_1822"
+
+	trigger = {
+		tag = BRZ
+		year = 1822
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen =  {
+		months = 6
+	}
+	option = {
+		name = "We shall stay united!"
+		release = CEQ
+		war = {
+			target = CEQ
+			attacker_goal = {
+				casus_belli = annex_core_country
+			}
+			call_ally = no
+		}
+	}
+	option = {
+		name = "Break the Empire."
+		release = SAO
+		release = MAR
+		release = MGS
+		release = GRP
+		release = MTG
+		release = CEQ
+		release = BAH
+		release = RGS
+		release = AMA
+		release = GOY
+		release = BRS
+		release = URU
+		all_core = {
+			remove_core = BRZ
+		}
+		change_tag = RIO
+                set_global_flag = the_empire_has_fallen		
+                
+	}
+}
+
+#The Farroupilha
+country_event = {
+	id = 183545
+	title = "The Riograndense Republic"
+	desc = "EVTDESC183545"
+        picture = "farroupilha"
+
+	trigger = {
+		tag = BRZ
+		year = 1835
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen =  {
+		months = 6
+	}
+	option = {
+		name = "Let they leave the Empire."
+		release = RGS
+		release = BRS
+		release = URU	
+
+		ai_chance = {
+			factor = 90
+		}
+	}
+	option = {
+		name = "We shall stay united!"
+		release = RGS
+		war = {
+			target = RGS
+			attacker_goal = {
+				casus_belli = annex_core_country
+			}
+			call_ally = no
+		}
+	}
+}
+
+#Age of Mauá
+country_event = {
+	id = 183550
+	title = "Era Mauá"
+	desc = "EVTDESC183550"
+        picture = "Visconde_Mauá"
+
+	trigger = {
+		tag = BRZ
+		year = 1850
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen =  {
+		months = 6
+	}
+	option = {
+		name = "Let the progress come to the Empire."
+                prestige = 30
+                        modifier = {
+                                 education_efficiency_modifier = 1
+                                 factory_cost = -1
+                                 factory_input = 1
+                                 factory_output = 1
+                                 factory_owner_cost = 1
+                                 factory_throughput = 1
+                                 import_cost = -1
+                                 loan_interest = 1
+                                 political_reform_desire = 0.5
+                                 life_rating = 5
+                                 assimilation_rate = 1
+                                 immigrant_attract = 1
+                                 immigrant_push = 1
+                        }
+
+		ai_chance = {
+			factor = 90
+		}
+	}
+}
+
+#Dissolution of the FRCA
+country_event = {
+	id = 7016
+	title = "Dissolution of the FRCA"
+	desc = "EVTDESC7016"
+
+	trigger = {
+		tag = UCA
+		year = 1838
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen =  {
+		months = 6
+	}
+	option = {
+		name = "Divide the Country."
+		UCA_2201 = {
+			add_core = COS
+		}
+		UCA_2197 = {
+			add_core = NIC
+		}
+		UCA_2186 = {
+			add_core = GUA
+		}
+		MEX_2182 = {
+			add_core = GUA
+		}
+		2193 = {
+			add_core = HON
+		}
+		2194 = {
+			add_core = HON
+		}
+		2195 = {
+			add_core = HON
+		}
+		2196 = {
+			add_core = HON
+		}
+		2191 = {
+			add_core = ELS
+		}
+		2192 = {
+			add_core = ELS
+		}
+		all_core = {
+			remove_core = UCA
+		}
+		release = COS
+		release = NIC
+		release = HON
+		release = ELS
+		change_tag = GUA
+		
+		ai_chance = {
+			factor = 90
+		}
+	}
+	option = {
+		name = "We shall stay united!"
+		UCA_2201 = {
+			add_core = COS
+		}
+		UCA_2197 = {
+			add_core = NIC
+		}
+		2193 = {
+			add_core = HON
+		}
+		2194 = {
+			add_core = HON
+		}
+		2195 = {
+			add_core = HON
+		}
+		2196 = {
+			add_core = HON
+		}
+		2191 = {
+			add_core = ELS
+		}
+		2192 = {
+			add_core = ELS
+		}
+		release = COS
+		release = NIC
+		release = HON
+		release = ELS
+		war = {
+			target = COS
+			attacker_goal = {
+				casus_belli = annex_core_country
+			}
+			call_ally = no
+		}
+		war = {
+			target = NIC
+			attacker_goal = {
+				casus_belli = annex_core_country
+			}
+			call_ally = no
+		}
+		war = {
+			target = HON
+			attacker_goal = {
+				casus_belli = annex_core_country
+			}
+			call_ally = no
+		}
+		war = {
+			target = ELS
+			attacker_goal = {
+				casus_belli = annex_core_country
+			}
+			call_ally = no
+		}
+		
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+
+#Hungarian Revolution
+country_event = {
+	id = 7019
+	title = "Hungarian Revolution"
+	desc = "EVTDESC7019"
+	
+	trigger = {
+		tag = AUS
+		year = 1848
+		NOT = { exists = HUN }
+		any_owned_province = {
+			is_core = HUN
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen =  {
+		months = 6
+	}
+	
+	option = {
+		name = "Damn them!"
+		release = HUN
+		war = {
+			target = HUN
+			attacker_goal = {
+				casus_belli = annex_core_country
+			}
+			call_ally = no
+		}
+		HUN = {
+			small_arms = 100
+			canned_food = 200
+			artillery = 50
+			luxury_clothes = 50
+			wine = 50
+			liquor = 50
+			ammunition = 100
+			money = 1000
+		}
+		
+		ai_chance = {
+			factor = 90
+		}
+	}
+	option = {
+		name = "Let them go."
+		all_core = {
+			limit = { 
+				is_core = HUN
+			}
+			remove_core = THIS
+		}
+		release = HUN
+
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+
+#Uruguay
+country_event = {
+	id = 7024
+	title = "Uruguay"
+	desc = "EVTDESC7024"
+
+	trigger = {
+		URU_2344 = { owned_by = THIS }
+                year = 1828
+		NOT = { 
+			tag = ARG
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen =  {
+		months = 36
+	}
+	
+	option = {
+		name = "Damn them!"
+		URU_2344 = {
+			add_core = URU
+			remove_core = ARG
+		}
+		release = URU
+		war = {
+			target = URU
+			attacker_goal = {
+				casus_belli = annex_core_country
+			}
+			call_ally = no
+		}
+		URU = {
+			small_arms = 100
+			canned_food = 200
+			artillery = 50
+			luxury_clothes = 50
+			wine = 50
+			liquor = 50
+			ammunition = 100
+			money = 1000
+		}
+
+		ai_chance = {
+			factor = 70
+		}
+	}
+	option = {
+		name = "Let them go."
+		URU_2344 = {
+			add_core = URU
+			remove_core = ARG
+		}
+		release = URU
+		
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				war_exhaustion = 10
+			}
+			modifier = {
+				factor = 2
+				year = 1825
+			}
+			modifier = {
+				factor = 2
+				average_militancy = 5
+			}
+		}
+	}
+}
+
